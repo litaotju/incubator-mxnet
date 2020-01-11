@@ -40,11 +40,13 @@ LLVM_URL=${LLVM_ROOT}${LLVM_PKG}.tar.xz
 
 TVM_PATH=`dirname $0`/../../3rdparty/tvm
 DST=${TVM_PATH}/build
-rm -rf $DST
+#rm -rf $DST
 mkdir -p $DST
 DST=`cd $DST; pwd`
 
-if [ -x "$(command -v curl)" ]; then
+if [ -f "${DST}/${LLVM_PKG}.tar.xz" ]; then
+    echo "Already exists, skip downloading"
+elif [ -x "$(command -v curl)" ]; then
     curl -L -o "${DST}/${LLVM_PKG}.tar.xz" "$LLVM_URL"
 elif [ -x "$(command -v wget)" ]; then
     wget -O "${DST}/${LLVM_PKG}.tar.xz" "$LLVM_URL"
