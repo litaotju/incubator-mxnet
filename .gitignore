@@ -166,3 +166,9 @@ cmake_options.yml
 # header file generated at compile time
 include/mkldnn/dnnl_version.h
 include/mkldnn/dnnl_config.h
+.cache/
+issues/
+.python_history
+.wget-hsts
+.local/
+.ipython/
